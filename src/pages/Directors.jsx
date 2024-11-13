@@ -1,16 +1,21 @@
-import { useEffect, useState } from "react";
+import React from 'react';
+import NavBar from '../components/NavBar';
 
-function Directors() {
-  return (
-    <>
-      <header>
-        {/* What component should go here? */}
-      </header>
-      <main>
-        {/* Director info here! */}
-      </main>
-    </>
-  );
-};
+const Directors = ({ directors }) => (
+  <div>
+    <NavBar />
+    <h1>Directors Page</h1>
+    {directors.map((director, index) => (
+      <article key={index}>
+        <h2>{director.name}</h2>
+        <ul>
+          {director.movies.map((movie, idx) => (
+            <li key={idx}>{movie}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
+);
 
 export default Directors;
